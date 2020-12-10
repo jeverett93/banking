@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Form, Button } from 'react-bootstrap';
 import { validateFields } from '../utils/common';
 import { Link } from 'react-router-dom';
+import { registerNewUser } from '../actions/auth';
 
 class Register extends React.Component {
     state = {
@@ -44,6 +45,16 @@ class Register extends React.Component {
                 });
             } else {
                 this.setState({ isSubmitted: true });
+                this.props
+                    .dispatch(registerNewUser({ first_name, last_name, email, password }))
+                    .then((response) => {
+                        if (response.success) {
+                            this.setState({
+                                successMsg: 'User registered successfully.',
+                                errorMsg: ''
+                            });
+                        }
+                    });
             }
         }
     };
@@ -77,6 +88,15 @@ class Register extends React.Component {
                                     type="text"
                                     name="first_name"
                                     placeholder="Enter first name"
+                                    onChange={this.handleInputChange}
+                                />
+                        </Form.Group>
+                        <Form.Group controlId="last_name">
+                                <Form.Label>Last Name</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    name="last_name"
+                                    placeholder="Enter lasst name"
                                     onChange={this.handleInputChange}
                                 />
                         </Form.Group>
