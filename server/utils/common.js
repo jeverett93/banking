@@ -14,6 +14,7 @@ const validateUser = async (email, password) => {
         [email]
     );
     const user = result.rows[0];
+    console.log(user)
     if (user) {
         const isMatch = await bcrypt.compare(password, user.password);
         if (isMatch) {

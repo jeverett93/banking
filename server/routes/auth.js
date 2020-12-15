@@ -33,7 +33,7 @@ Router.post('/signup', async (req, res) => {
             });
         }
 
-        const result =await pool.query(
+        const result = await pool.query(
             'select count(*) as count from bank_user where email=$1',
             [email]
         );
