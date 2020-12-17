@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import Login from '../components/Login';
-import Register from '../components/Register'
+import Register from '../components/Register';
+import Profile from '../components/Profile';
 
 const AppRouter = () => {
     return (
@@ -11,6 +12,7 @@ const AppRouter = () => {
                 <Switch>
                     <Route path="/" component={Login} exact={true} />
                     <Route path="/register" component={Register} />
+                    <Route path="/profile" component={Profile} />
                 </Switch>
             </div>
         </BrowserRouter>
