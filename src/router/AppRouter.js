@@ -1,16 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import { createBrowserHistory } from 'history';
 import { Route, Switch, Router } from 'react-router-dom';
 import Login from '../components/Login';
 import Register from '../components/Register';
 import Profile from '../components/Profile';
+import Header from '../components/Header';
 
 export const history = createBrowserHistory();
 
-const AppRouter = () => {
+const AppRouter = ({ auth }) => {
     return (
-        <Router>
+        <Router history={history}>
+            <div>
+                {!_.isEmpty(auth.token) && <Header />}
+            </div>
             <div className="container">
                 <Switch>
                     <Route path="/" component={Login} exact={true} />
