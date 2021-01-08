@@ -89,7 +89,7 @@ class Profile extends React.Component {
                             )
                         )}
                         <Form.Group controlId="email">
-                            <Form.Label>Email Address:</Form.Label>
+                            <Form.Label>Email address:</Form.Label>
                             <span className="label-value">{email}</span>
                             </Form.Group>
                             <Form.Group controlId="first_name">
