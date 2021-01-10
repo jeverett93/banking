@@ -1,9 +1,8 @@
 const express = require('express');
-const cors = require('cors');
 const authRoute = require('./routes/auth');
 const profileRoute = require('./routes/profile');
 const accountRoute = require('./routes/account');
-const transactionRoute = require('./routes/transactions');
+const transactionsRoute = require('./routes/transactions');
 require('dotenv').config();
 
 const app = express();
@@ -14,7 +13,7 @@ app.set('view engine', 'ejs');
 app.use(authRoute);
 app.use(accountRoute.Router);
 app.use(profileRoute);
-app.use(transactionRoute);
+app.use(transactionsRoute);
 
 app.listen(PORT, () => {
     console.log(`server started on port ${PORT}`);
