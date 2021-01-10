@@ -87,7 +87,7 @@ Router.post('/signin', async (req, res) => {
    }
 });
 
-Router.post('logout', authMiddleware, async (req, res) => {
+Router.post('/logout', authMiddleware, async (req, res) => {
     try {
         const { userid, access_token } = req.user;
         await pool.query('delete from tokens where userid=$1 and access_token=$2', [

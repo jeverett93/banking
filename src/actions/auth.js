@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { SIGN_IN, BASE_API_URL, SIGN_OUT } from '../utils/constants';
 import { initiateGetProfile } from './profile';
+import { resetAccount } from './account';
 import { history } from '../router/AppRouter';
 import { getErrors } from './errors';
 import { post } from '../utils/api';
-import { resetAccount } from './account';
 
 export const signIn = (user) => ({
     type: SIGN_IN,
@@ -24,7 +24,6 @@ export const initiateLogin = (email, password) => {
             dispatch(initiateGetProfile(user.email));
             history.push('/profile');
         } catch (error) {
-            console.log('error', error);
             error.response && dispatch(getErrors(error.response.data));
         }
     };
@@ -36,7 +35,6 @@ export const registerNewUser = (data) => {
             await axios.post(`${BASE_API_URL}/signup`, data);
             return { success: true };
         } catch (error) {
-            console.log('error', error);
             error.response && dispatch(getErrors(error.response.data));
             return { success: false };
         }

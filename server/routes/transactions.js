@@ -92,7 +92,7 @@ Router.get('/transactions/:id', authMiddleware, async (req, res) => {
     }
 });
 
-Router.get('download/:id', authMiddleware, async (req, res) => {
+Router.get('/download/:id', authMiddleware, async (req, res) => {
     try {
         const { start_date, end_date } = req.query;
         const account_id = req.params.id;
