@@ -1,11 +1,10 @@
 const { Pool } = require('pg');
 
 const pool = new Pool({
-    user: 'postgres',
-    password: 'root',
-    host: 'localhost',
-    port: 5432,
-    database: 'bank_account'
+    connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 const getClient = async () => {
@@ -18,3 +17,4 @@ const getClient = async () => {
 };
 
 module.exports = { pool, getClient };
+
