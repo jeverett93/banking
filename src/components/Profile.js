@@ -109,7 +109,7 @@ class Profile extends React.Component {
                                     name="last_name"
                                     placeholder="Enter last name"
                                     value={last_name}
-                                    onChange={this.handleInputChange}
+                                    onChange={this.handleOnChange}
                                 />
                         </Form.Group>
                             

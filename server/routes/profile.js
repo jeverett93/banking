@@ -27,6 +27,7 @@ Router.post('/profile', authMiddleware, async (req, res) => {
         );
         res.send(result.rows[0]);
     } catch (error) {
+        console.log(error)
         res.status(400).send({
             update_error: 'Error while updating profile...Try again later.'
         });
@@ -37,6 +38,7 @@ Router.get('/profile', authMiddleware, async (req, res) => {
     try {
         res.send(req.user);
     } catch (error) {
+        console.log(error)
         res.status(400).send({
             update_error: 'Error while getting profile...Try again later.'
         });

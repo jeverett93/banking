@@ -53,6 +53,7 @@ Router.post('/account', authMiddleware, async (req, res) => {
         );
         res.status(201).send();
     } catch (error) {
+        console.log(error)
         res.send({
             add_error: 'Error while adding new account...Try again later.'
         });
@@ -68,6 +69,7 @@ Router.patch('/account', authMiddleware, async (req, res) => {
         );
         res.send({ account: result.rows[0] });
     } catch (error) {
+        console.log(error)
         res.send({
             update_error: 'Error while updating new account...Try again later.'
         });
